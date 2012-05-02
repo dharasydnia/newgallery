@@ -1,0 +1,26 @@
+<%= form_for(@image, :html => { :multipart => true }) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :gallery_id %><br />
+    <%= collection_select(:image, :gallery_id, Gallery.all, :id, :title, :prompt => 'Please select title') %>
+  </div>
+  <div class="field">
+    <%= f.label "Image" %><br />
+    <%= f.file_field :img %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
