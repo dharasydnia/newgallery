@@ -13,7 +13,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/1
   # GET /galleries/1.json
   def show
-    @gallery = Gallery.find(params[:id])
+    @gallery = Gallery.find(params[:id],:include => :image)
 
     respond_to do |format|
       format.html # show.html.erb
