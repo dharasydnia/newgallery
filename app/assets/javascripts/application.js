@@ -12,4 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require fancybox
+$(document).ready(function() {
+  //$("a.fancybox").fancybox();
+  $("a[rel=example_group]").fancybox();
+});
 //= require_tree .

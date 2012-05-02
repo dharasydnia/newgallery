@@ -6,7 +6,7 @@
 </p>
 
 <p>
-	<%= image_tag @image.img.url(:small) %>
+	<a rel="example_group" href="<%= @image.img.url(:original) %>" class="fancybox"><%= (image_tag @image.img.url(:thumb), :border => "0") %></a>
 </p>
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
