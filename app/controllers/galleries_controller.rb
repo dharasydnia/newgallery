@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
