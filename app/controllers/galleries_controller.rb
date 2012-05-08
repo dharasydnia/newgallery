@@ -15,12 +15,8 @@ class GalleriesController < ApplicationController
   def show
     
     @gallery = Gallery.find(params[:id])
-     
-=begin
-@images = Image.find(:all,
-      :joins=>" INNER JOIN galleries ON galleries.id = images.gallery_id",
-      :include=>:gallery)    
-=end
+	
+	@images = @gallery.images
 
     respond_to do |format|
       format.html # show.html.erb

@@ -5,7 +5,11 @@
 <p>
   <%= @gallery.description %>
 </p>
-
+<p>
+  <% @images.each do |image| %>
+  <a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= image_tag image.img.url(:thumb) %></a>
+  <% end %>
+</p>
 <a href="/images/new">Add Image</a>
 
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
