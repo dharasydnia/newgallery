@@ -4,6 +4,7 @@
   <tr>
     <th>Gallery</th>
     <th>Image</th>
+    <th>Title</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= image.gallery_id %></td>
     <td><%= image_tag image.img.url(:thumb) %></td>
+    <td><%= image.title %></td>
     <td><%= link_to 'Show', image %></td>
     <td><%= link_to 'Edit', edit_image_path(image) %></td>
     <td><%= link_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %></td>

@@ -15,6 +15,12 @@
     <b><%= f.label :gallery_id %></b>
     <%= collection_select(:image, :gallery_id, Gallery.all, :id, :title, :prompt => 'Please select title') %>
   </div>
+  
+  <div class="field">
+    <b><%= f.label "Image Title" %></b>
+    <%= f.text_field :title %>
+  </div>
+  
   <div class="field">
     <b><%= f.label "Image" %></b>
     <%= f.file_field :img %>

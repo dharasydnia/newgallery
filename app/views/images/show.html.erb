@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <b>Title:</b>
+  <%= @image.title %>
+</p>
+
+<p>
 	<a rel="example_group" href="<%= @image.img.url(:original) %>" class="fancybox"><%= (image_tag @image.img.url(:thumb), :border => "0") %></a>
 </p>
 
