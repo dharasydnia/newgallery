@@ -26,5 +26,27 @@ to leave for the far World of Grammar. The Big
 Oxmox advised her not to do so, because there
 were thousands of bad Commas.</td>
 	</tr>
+	<tr>
+		<td><%= link_to 'Create a Gallery', new_gallery_path %></td>
+	</tr>
 </table>
-<p style="padding-left: 120px;"><%= link_to 'Create a Gallery', new_gallery_path %></p>
+
+<table border="0" width="35%" style="padding-left: 120px;">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @galleries.each do |gallery| %>
+  <tr>
+    <td><%= gallery.title %></td>
+    <td><%= gallery.description %></td>
+    <td><%= link_to 'Show', gallery %></td>
+    <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+    <td><%= link_to 'Destroy', gallery, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
