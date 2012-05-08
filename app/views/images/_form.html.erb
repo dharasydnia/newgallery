@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :gallery_id %><br />
+    <b><%= f.label :gallery_id %></b>
     <%= collection_select(:image, :gallery_id, Gallery.all, :id, :title, :prompt => 'Please select title') %>
   </div>
   <div class="field">
-    <%= f.label "Image" %><br />
+    <b><%= f.label "Image" %></b>
     <%= f.file_field :img %>
   </div>
   
