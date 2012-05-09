@@ -4,6 +4,12 @@ Newgallery::Application.routes.draw do
   resources :galleries
   
   root to: 'galleries#index'
+  
+  #match 'images/new' => 'galleries/:id/images/new'
+  
+  resources :galleries do
+    resources :images
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

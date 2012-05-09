@@ -11,10 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <b><%= f.label :gallery_id %></b>
-    <%= collection_select(:image, :gallery_id, Gallery.all, :id, :title, :prompt => 'Please select title') %>
-  </div>
+	<% if params[:action] == "new" %>
+	<%= f.hidden_field :gallery_id, :value => params[:gallery_id] %>
+	<% else %>
+	<%= f.hidden_field :gallery_id %>
+	<% end %>  
   
   <div class="field">
     <b><%= f.label "Image Title" %></b>

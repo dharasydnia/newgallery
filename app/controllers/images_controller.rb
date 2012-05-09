@@ -2,7 +2,9 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @gallery = Gallery.find(params[:gallery_id])
+    
+    @images = @gallery.images
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +16,7 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     @image = Image.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @image }
@@ -25,6 +27,8 @@ class ImagesController < ApplicationController
   # GET /images/new.json
   def new
     @image = Image.new
+    
+    @image.gallery_id = params[:id]
 
     respond_to do |format|
       format.html # new.html.erb
