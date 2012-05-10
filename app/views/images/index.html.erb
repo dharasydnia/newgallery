@@ -15,9 +15,9 @@
     <td><%= image.gallery_id %></td>
     <td><%= image_tag image.img.url(:thumb) %></td>
     <td><%= image.title %></td>
-    <td><%= link_to 'Show', image %></td>
+    <td><%= link_to 'View', image %></td>
     <td><%= link_to 'Edit', edit_image_path(image.id) %></td>
-    <td><%= link_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', image, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

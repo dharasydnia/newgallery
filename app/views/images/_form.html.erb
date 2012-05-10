@@ -1,33 +1,34 @@
 <%= form_for(@image, :html => { :multipart => true }) do |f| %>
-  <% if @image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
-
-      <ul>
-      <% @image.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-	<% if params[:action] == "new" %>
+<% if params[:action] == "new" %>
 	<%= f.hidden_field :gallery_id, :value => params[:gallery_id] %>
-	<% else %>
+	<!--<%= f.hidden_field :id, :value => params[:gallery_id] %>-->
+<% else %>
 	<%= f.hidden_field :gallery_id %>
-	<% end %>  
-  
-  <div class="field">
-    <b><%= f.label "Image Title" %></b>
-    <%= f.text_field :title %>
-  </div>
-  
-  <div class="field">
-    <b><%= f.label "Image" %></b>
-    <%= f.file_field :img %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<!--<%= f.hidden_field :id, :value => params[:gallery_id] %>-->
+<% end %>
+
+<% if @image.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+	<ul>
+		<% @image.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<table width="100%" border="0">
+	<tr>
+		<td width="40%"><b><%= f.label "Image Title" %></b></td>
+		<td width="60%"><%= f.text_field :title %></td>
+	</tr>
+	<tr>
+		<td><b><%= f.label "Image" %></b></td>
+		<td><%= f.file_field :img %></td>
+	</tr>
+	<tr>
+		<td colspan="2"><%= f.submit %></td>
+	</tr>
+</table>
 <% end %>

@@ -17,10 +17,18 @@ class ImagesController < ApplicationController
   def show
     @image = Image.find(params[:id])
     
-    respond_to do |format|
+    myurl = @image.gallery_id.to_s
+    
+    redirect_to "/galleries/"+myurl+"/" 
+=begin
+  respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @image }
     end
+=end
+  
+
+    
   end
 
   # GET /images/new
@@ -45,7 +53,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(params[:image])
-
+    
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
@@ -77,10 +85,14 @@ class ImagesController < ApplicationController
   # DELETE /images/1.json
   def destroy
     @image = Image.find(params[:id])
+    
+    myurl = @image.gallery_id.to_s
+    
     @image.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to images_url }
+      #format.html { redirect_to images_url }
+      format.html { redirect_to "/galleries/"+myurl+"/"  }
       format.json { head :no_content }
     end
   end

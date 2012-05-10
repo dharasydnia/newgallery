@@ -10,6 +10,8 @@ Newgallery::Application.routes.draw do
   resources :galleries do
     resources :images
   end
+  
+  #match '/images/' => 'galleries/:id/', :as => :images, :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

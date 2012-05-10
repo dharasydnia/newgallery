@@ -6,47 +6,45 @@
 	</tr>
 	<tr>
 		<td>Far far away, behind the word mountains, far
-from the countries Vokalia and Consonantia,
-there live the blind texts. Separated they live in
-Bookmarksgrove right at the coast of the
-Semantics, a large language ocean.</td>
+		from the countries Vokalia and Consonantia,
+		there live the blind texts. Separated they live in
+		Bookmarksgrove right at the coast of the
+		Semantics, a large language ocean.</td>
 	</tr>
 	<tr>
 		<td>A small river named Duden flows by their place
-and supplies it with the necessary regelialia. It is
-a paradisematic country, in which roasted parts
-of sentences fly into your mouth.</td>
+		and supplies it with the necessary regelialia. It is
+		a paradisematic country, in which roasted parts
+		of sentences fly into your mouth.</td>
 	</tr>
 	<tr>
 		<td>Even the all-powerful Pointing has no control
-about the blind texts it is an almost
-unorthographic life One day however a small line
-of blind text by the name of Lorem Ipsum decided
-to leave for the far World of Grammar. The Big
-Oxmox advised her not to do so, because there
-were thousands of bad Commas.</td>
+		about the blind texts it is an almost
+		unorthographic life One day however a small line
+		of blind text by the name of Lorem Ipsum decided
+		to leave for the far World of Grammar. The Big
+		Oxmox advised her not to do so, because there
+		were thousands of bad Commas.</td>
 	</tr>
+	<tr><td height="10px"></td></tr>
 	<tr>
 		<td><%= link_to 'Create a Gallery', new_gallery_path %></td>
 	</tr>
+	<tr><td height="20px"></td></tr>
 </table>
-
-<table border="0" width="35%" style="padding-left: 120px;">
+<table border="0" align="center" width="50%">
   <tr>
     <th>Title</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="3" align="center">Actions</th>
   </tr>
-
 <% @galleries.each do |gallery| %>
   <tr>
     <td><%= gallery.title %></td>
     <td><%= gallery.description %></td>
-    <td><%= link_to 'Show', gallery %></td>
+    <td><%= link_to 'View', gallery %></td>
     <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
-    <td><%= link_to 'Destroy', gallery, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', gallery, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
