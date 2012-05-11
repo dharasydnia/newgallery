@@ -18,7 +18,10 @@
 				<% @images.each do |image| %>
 					<% i=i+1 %>
 					<td>
-						<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:small), :border => "0") %></a>
+						<b><%= image.title %></b><br />
+						<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:small), :border => "0") %></a><br />
+						<%= link_to 'Edit', edit_image_path(image) %> |
+						<%= link_to 'Delete', image, confirm: 'Are you sure?', method: :delete %>
 					</td>
 				<% if i%3 == 0 %>
 				</tr>
@@ -29,8 +32,8 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<a href="/galleries/<%= @gallery.id %>/images/new">Add Image</a> |
-			<a href="/galleries/<%= @gallery.id %>/images">Edit Image</a><!-- |
+			<a href="/galleries/<%= @gallery.id %>/images/new">Add Image</a><!-- |
+			<a href="/galleries/<%= @gallery.id %>/images">Edit Image</a> |
 			<%= link_to 'Back', galleries_path %>-->
 		</td>
 	</tr>

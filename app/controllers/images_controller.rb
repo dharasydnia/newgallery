@@ -86,13 +86,13 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
     
-    myurl = @image.gallery_id.to_s
+    myurl = "/galleries/"+@image.gallery_id.to_s+"/" 
     
     @image.destroy
     
     respond_to do |format|
       #format.html { redirect_to images_url }
-      format.html { redirect_to "/galleries/"+myurl+"/images"  }
+      format.html { redirect_to myurl  }
       format.json { head :no_content }
     end
   end
