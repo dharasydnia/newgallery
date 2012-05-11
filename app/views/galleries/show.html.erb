@@ -19,9 +19,9 @@
 					<% i=i+1 %>
 					<td>
 						<b><%= image.title %></b><br />
-						<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:small), :border => "0") %></a><br />
+						<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:small), :border => "0") %></a><!--<br />
 						<%= link_to 'Edit', edit_image_path(image) %> |
-						<%= link_to 'Delete', image, confirm: 'Are you sure?', method: :delete %>
+						<%= link_to 'Delete', image, confirm: 'Are you sure?', method: :delete %>-->
 					</td>
 				<% if i%3 == 0 %>
 				</tr>
