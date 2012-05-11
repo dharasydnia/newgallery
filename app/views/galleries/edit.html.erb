@@ -1,6 +1,24 @@
-<h1>Editing gallery</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @gallery %> |
-<%= link_to 'Back', galleries_path %>
+<table border="0" width="35%" style="padding-left: 120px;">
+	<tr>
+		<td><h1>Editing gallery</h1></td>
+	</tr>
+	<tr>
+		<td>Far far away, behind the word mountains, far
+		from the countries Vokalia and Consonantia,
+		there live the blind texts. Separated they live in
+		Bookmarksgrove right at the coast of the
+		Semantics, a large language ocean.</td>
+	</tr>
+	<tr><td height="15px"></td></tr>
+	<tr>
+		<td style="padding-left: 100px;">
+			<!--<%= render 'form' %>-->
+			<%= render 'edit_form' %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Show', @gallery %> | <%= link_to 'Back', galleries_path %>
+		</td>
+	</tr>
+</table>

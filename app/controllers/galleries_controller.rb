@@ -38,6 +38,10 @@ class GalleriesController < ApplicationController
   # GET /galleries/new.json
   def new
     @gallery = Gallery.new
+    
+    1.times do
+      5.times { @gallery.images.build }
+    end
 
     respond_to do |format|
       format.html # new.html.erb

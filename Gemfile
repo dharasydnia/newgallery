@@ -15,6 +15,10 @@ end
 
 gem 'paperclip'
 
+gem "nifty-generators", :group => :development
+
+gem "mocha", :group => :test
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

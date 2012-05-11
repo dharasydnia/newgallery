@@ -19,6 +19,13 @@
     <b><%= f.label :description %></b>
     <%= f.text_area :description, :size => "30x10" %>
   </div>
+  
+  <% cnt=1 %>
+  <%= f.fields_for :images do |builder| %>
+    <%= render "image_fields", :f => builder, :cnt => t(cnt) %>
+    <% cnt = cnt + 1 %>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
