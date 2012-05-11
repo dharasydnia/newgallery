@@ -7,7 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<% if params[:controller] == "galleries" || params[:controller] == "images" %>
+	<table align="center" width="30%">
+		<tr>
+			<td>
+				<a href="/">Home</a>
+			</td>
+			<% if params[:controller] == "galleries" && params[:id] != 0 %>
+				<% galurl = '/galleries/'+ params[:id].to_s %>
+			<td>
+				<a href="<%= galurl %>">Gallery</a>
+			</td>
+			<% end %>
+			<% if params[:controller] == "images" && params[:gallery_id] != 0 %>
+				<% imgurl = '/galleries/'+ params[:gallery_id].to_s + '/images' %>
+			<td>
+				<a href="<%= imgurl %>">Images</a>
+			</td>
+			<% end %>
+		</tr>
+	</table>
+	<% end %>
 <%= yield %>
 
 </body>

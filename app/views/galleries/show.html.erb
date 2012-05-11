@@ -3,18 +3,29 @@
 		<td colspan="2"><p id="notice"><%= notice %></p></td>
 	</tr>
 	<tr>
-		<td width="50%"><h2><%= @gallery.title %></h2></td>
-		<td><%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %></td>
+		<td width="70%"><h2><%= @gallery.title %></h2></td>
+		<td><%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %> |
+			<a href="/galleries/<%= @gallery.id %>/images/new">Add Image</a></td>
 	</tr>
 	<tr>
 		<td colspan="2"><%= @gallery.description %></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<% @images.each do |image| %>
-				<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:thumb), :border => "0") %></a>
-			<% end %>
-		</td>
+			<% i=0 %>
+			<table width="80%">
+				<tr>
+				<% @images.each do |image| %>
+					<% i=i+1 %>
+					<td>
+						<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:small), :border => "0") %></a>
+					</td>
+				<% if i%3 == 0 %>
+				</tr>
+				<% end %>
+				<% end %>
+			</table>
+		</td>		
 	</tr>
 	<tr>
 		<td colspan="2">

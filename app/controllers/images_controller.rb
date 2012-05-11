@@ -92,7 +92,7 @@ class ImagesController < ApplicationController
     
     respond_to do |format|
       #format.html { redirect_to images_url }
-      format.html { redirect_to "/galleries/"+myurl+"/"  }
+      format.html { redirect_to "/galleries/"+myurl+"/images"  }
       format.json { head :no_content }
     end
   end
