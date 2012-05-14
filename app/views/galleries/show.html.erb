@@ -10,6 +10,7 @@
 	<tr>
 		<td colspan="2"><%= @gallery.description %></td>
 	</tr>
+	<tr><td colspan="2" align="center"><%= page_entries_info @images %></td></tr>
 	<tr>
 		<td colspan="2">
 			<% i=0 %>
@@ -30,6 +31,16 @@
 			</table>
 		</td>		
 	</tr>
+	<tr><td colspan="2"><div class="apple_pagination"><%= will_paginate @images %></div></td></tr>
+	<tr>
+		<td colspan="2">
+			<input name="star1" type="radio" class="star"/>
+			<input name="star1" type="radio" class="star"/>
+			<input name="star1" type="radio" class="star"/>
+			<input name="star1" type="radio" class="star"/>
+			<input name="star1" type="radio" class="star"/>
+		</td>
+	</tr>
 	<tr>
 		<td colspan="2">
 			<a href="/galleries/<%= @gallery.id %>/images/new">Add Image</a><!-- |
@@ -38,4 +49,3 @@
 		</td>
 	</tr>
 </table>
-

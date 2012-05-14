@@ -1,0 +1,8 @@
+<p>
+  <%= f.label "title" %><%= cnt1 %><br />
+  <%= f.text_field :title %><br />
+  
+  <%= f.label "image file" %><%= cnt1 %><br />
+  <%= image_tag f.object.img(:thumb) %><br />
+  <%= f.file_field :img %><br />
+</p>

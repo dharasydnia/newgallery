@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require fancybox
+//= require jquery-star-rating
 $(document).ready(function() {
   //$("a.fancybox").fancybox();
   $("a[rel=example_group]").fancybox();

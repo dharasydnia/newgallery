@@ -18,19 +18,14 @@ class GalleriesController < ApplicationController
     
     @gallery = Gallery.find(params[:id])
     
-    @images = @gallery.images
+    #@images = @gallery.images
+    @images = @gallery.images.paginate :page => params[:page], :per_page => 6
      
-=begin
-  @images = Image.find(:all,
-      :joins=>" INNER JOIN galleries ON galleries.id = images.gallery_id",
-      :include=>:gallery,
-      :conditions => { :images => { :gallery_id => @gallery.id } })
-=end
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @gallery }
       format.json { render json: @images }
+      
     end
   end
 
@@ -52,6 +47,10 @@ class GalleriesController < ApplicationController
   # GET /galleries/1/edit
   def edit
     @gallery = Gallery.find(params[:id])
+    
+    #1.times do
+      3.times { @gallery.images.build }
+    #end
   end
 
   # POST /galleries
