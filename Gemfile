@@ -15,13 +15,13 @@ end
 
 gem 'paperclip'
 
-gem "nifty-generators", :group => :development
+gem "nifty-generators"
 
-gem "mocha", :group => :test
+gem "mocha"
 
 gem "will_paginate", "~> 3.0.3"
 
-gem 'ajaxful_rating', '3.0.0.beta3', :group => :development
+gem 'ajaxful_rating', '3.0.0.beta3'
 
 gem "bcrypt-ruby", :require => "bcrypt"
 
