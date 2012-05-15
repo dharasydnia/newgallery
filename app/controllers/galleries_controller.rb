@@ -69,6 +69,15 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def rate
+    @gallery = Gallery.find(params[:id])
+    @gallery.rate(params[:stars], current_user, params[:dimension])
+    render :update do |page|
+      page.replace_html @gallery.wrapper_dom_id(params), ratings_for(@gallery, params.merge(:wrap => false))
+      page.visual_effect :highlight, @gallery.wrapper_dom_id(params)
+    end
+  end
+  
   # PUT /galleries/1
   # PUT /galleries/1.json
   def update

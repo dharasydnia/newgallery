@@ -286,6 +286,7 @@
 			control.current = null;
 			// programmatically (based on user input)
 			if(typeof value!='undefined'){
+				//alert('in if');
 			 // select by index (0 based)
 				if(typeof value=='number')
  			 return $(control.stars[value]).rating('select',undefined,wantCallBack);
@@ -296,10 +297,12 @@
 						if($(this).data('rating.input').val()==value) $(this).rating('select',undefined,wantCallBack);
 					});
 			}
-			else
+			else {
+				//alert('in else');
 				control.current = this[0].tagName=='INPUT' ?
 				 this.data('rating.star') :
 					(this.is('.rater-'+ control.serial) ? this : null);
+			}
 
 			// Update rating control state
 			this.data('rating', control);

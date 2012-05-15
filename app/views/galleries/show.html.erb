@@ -34,11 +34,37 @@
 	<tr><td colspan="2"><div class="apple_pagination"><%= will_paginate @images %></div></td></tr>
 	<tr>
 		<td colspan="2">
-			<input name="star1" type="radio" class="star"/>
-			<input name="star1" type="radio" class="star"/>
-			<input name="star1" type="radio" class="star"/>
-			<input name="star1" type="radio" class="star"/>
-			<input name="star1" type="radio" class="star"/>
+			<table width="100%" align="center">
+				<tr>
+					<td>
+						<h3>Speed:</h3>
+						<p>
+						  Global Avg: <%= ratings_for @gallery, :dimension => :speed %>
+						</p>
+						Your rating: <%= ratings_for @gallery, :force_static => true, :dimension => :speed, :small => true, :show_user_rating => true %>
+						
+						<h3>Beauty:</h3>
+						<p>
+						  Global Avg: <%= ratings_for @gallery, :dimension => :beauty %>
+						</p>
+						Your rating: <%= ratings_for @gallery, :force_static => true, :dimension => :beauty, :small => true, :show_user_rating => true %>
+						
+						<h3>Price:</h3>
+						<p>
+						  Global Avg: <%= ratings_for @gallery, :dimension => :price %>
+						</p>
+						Your rating: <%= ratings_for @gallery, :force_static => true, :dimension => :price, :small => true, :show_user_rating => true %>
+						
+						
+						<h3>Raters (speed)</h3>
+						
+						<% for rater in @gallery.raters(:speed) %>
+						  <%= rater.username %>:
+						  <%= ratings_for @gallery, rater, :dimension => :speed, :show_user_rating => true %>
+						<% end %>
+					</td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 	<tr>

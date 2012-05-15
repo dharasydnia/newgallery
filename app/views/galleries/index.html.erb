@@ -36,12 +36,18 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
+    <th>Speed</th>
+    <th>Beauty</th>
+    <th>Price</th>
     <th colspan="3" align="center">Actions</th>
   </tr>
 <% @galleries.each do |gallery| %>
   <tr>
     <td><%= gallery.title %></td>
     <td><%= gallery.description %></td>
+    <td><%= ratings_for gallery, :static, :small => true, :dimension => :speed %></td>
+    <td><%= ratings_for gallery, :static, :small => true, :dimension => :beauty %></td>
+    <td><%= ratings_for gallery, :static, :small => true, :dimension => :price %></td>
     <td><%= link_to 'View', gallery %></td>
     <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
     <td><%= link_to 'Delete', gallery, confirm: 'Are you sure?', method: :delete %></td>

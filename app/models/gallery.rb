@@ -4,4 +4,8 @@ class Gallery < ActiveRecord::Base
   
   validates :title, :presence => true
   validates :description, :presence => true
+  
+  ajaxful_rateable :dimensions => [:speed, :beauty, :price], :allow_update => true
+  
+  #attr_accessible :title, :description
 end

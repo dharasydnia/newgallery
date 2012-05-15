@@ -21,7 +21,9 @@ gem "mocha", :group => :test
 
 gem "will_paginate", "~> 3.0.3"
 
-gem 'jquery-star-rating-rails'
+gem 'ajaxful_rating', '3.0.0.beta3', :group => :development
+
+gem "bcrypt-ruby", :require => "bcrypt"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,7 +38,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
 gem 'fancybox-rails'
+
+gem 'jquery-star-rating-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
