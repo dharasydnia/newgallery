@@ -26,13 +26,6 @@
   	<% cnt = cnt + 1 %>
   <% end %>
 
-<!--  
-  <% cnt1=1 %>
-  <%= f.fields_for :images do |builder| %>
-    <%= render "add_new_image_fields", :f => builder, :cnt1 => t(cnt1) %>
-    <% cnt1 = cnt1 + 1 %>
-  <% end %>
--->    
   <div class="actions">
     <%= f.submit %>
   </div>

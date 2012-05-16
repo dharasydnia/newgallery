@@ -1,13 +1,3 @@
-<!--
-	<p>
-	<b><%= f.label "title " %><%= cnt %></b><br />
-	<%= f.text_field :title %><br />
-	<b><%= f.label "image file " %><%= cnt %></b><br />
-	<%= image_tag f.object.img(:thumb) %><br />
-	<%= f.check_box :_destroy %>
-	<%= f.label :_destroy, "Remove" %>
-</p>
--->
 <p>
   <% if !f.object.persisted? %>
    <%= f.label :title %><br />

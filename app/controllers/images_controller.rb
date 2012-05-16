@@ -1,6 +1,4 @@
 class ImagesController < ApplicationController
-  # GET /images
-  # GET /images.json
   def index
     @gallery = Gallery.find(params[:gallery_id])
     
@@ -12,30 +10,16 @@ class ImagesController < ApplicationController
     end
   end
 
-  # GET /images/1
-  # GET /images/1.json
   def show
     @image = Image.find(params[:id])
     
     myurl = @image.gallery_id.to_s
     
-    redirect_to "/galleries/"+myurl+"/" 
-=begin
-  respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @image }
-    end
-=end
-  
-
-    
+    redirect_to "/galleries/"+myurl+"/"
   end
 
-  # GET /images/new
-  # GET /images/new.json
   def new
-    @image = Image.new
-    
+    @image = Image.new    
     @image.gallery_id = params[:id]
 
     respond_to do |format|
@@ -44,13 +28,10 @@ class ImagesController < ApplicationController
     end
   end
 
-  # GET /images/1/edit
   def edit
     @image = Image.find(params[:id])
   end
 
-  # POST /images
-  # POST /images.json
   def create
     @image = Image.new(params[:image])
     
@@ -65,8 +46,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  # PUT /images/1
-  # PUT /images/1.json
   def update
     @image = Image.find(params[:id])
 
@@ -81,17 +60,11 @@ class ImagesController < ApplicationController
     end
   end
 
-  # DELETE /images/1
-  # DELETE /images/1.json
   def destroy
-    @image = Image.find(params[:id])
-    
-    myurl = "/galleries/"+@image.gallery_id.to_s+"/" 
-    
-    @image.destroy
-    
+    @image = Image.find(params[:id])    
+    myurl = "/galleries/"+@image.gallery_id.to_s+"/"    
+    @image.destroy    
     respond_to do |format|
-      #format.html { redirect_to images_url }
       format.html { redirect_to myurl  }
       format.json { head :no_content }
     end

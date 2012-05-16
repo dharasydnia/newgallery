@@ -13,6 +13,7 @@
 	<tr><td colspan="2" align="center"><%= page_entries_info @images %></td></tr>
 	<tr>
 		<td colspan="2">
+			<% tot = @images.count %>
 			<% i=0 %>
 			<table width="80%">
 				<tr>
@@ -20,13 +21,9 @@
 					<% i=i+1 %>
 					<td>
 						<b><%= image.title %></b><br />
-						<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:small), :border => "0") %></a><!--<br />
-						<%= link_to 'Edit', edit_image_path(image) %> |
-						<%= link_to 'Delete', image, confirm: 'Are you sure?', method: :delete %>-->
+						<a rel="example_group" href="<%= image.img.url(:original) %>" class="fancybox"><%= (image_tag image.img.url(:small), :border => "0") %></a>
 					</td>
-				<% if i%3 == 0 %>
-				</tr>
-				<% end %>
+				<% if i%3 == 0 %></tr><% end %>
 				<% end %>
 			</table>
 		</td>		
@@ -34,32 +31,33 @@
 	<tr><td colspan="2"><div class="apple_pagination"><%= will_paginate @images %></div></td></tr>
 	<tr>
 		<td colspan="2">
-			<table width="100%" align="center">
+			<table width="70%" border="0">
 				<tr>
-					<td>
+					<td valign="top">
 						<h3>Speed:</h3>
 						<p>
 						  Global Avg: <%= ratings_for @gallery, :dimension => :speed %>
 						</p>
 						Your rating: <%= ratings_for @gallery, :force_static => true, :dimension => :speed, :small => true, :show_user_rating => true %>
-						
+					</td>
+					<td valign="top">
 						<h3>Beauty:</h3>
 						<p>
 						  Global Avg: <%= ratings_for @gallery, :dimension => :beauty %>
 						</p>
 						Your rating: <%= ratings_for @gallery, :force_static => true, :dimension => :beauty, :small => true, :show_user_rating => true %>
-						
+					</td>
+					<td valign="top">	
 						<h3>Price:</h3>
 						<p>
 						  Global Avg: <%= ratings_for @gallery, :dimension => :price %>
 						</p>
 						Your rating: <%= ratings_for @gallery, :force_static => true, :dimension => :price, :small => true, :show_user_rating => true %>
-						
-						
-						<h3>Raters (speed)</h3>
-						
+					</td>
+					<td valign="top">
+						<h3>Raters</h3>
 						<% for rater in @gallery.raters(:speed) %>
-						  <%= rater.username %>:
+						  <p><%= rater.username %>:</p>
 						  <%= ratings_for @gallery, rater, :dimension => :speed, :show_user_rating => true %>
 						<% end %>
 					</td>
@@ -69,9 +67,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<a href="/galleries/<%= @gallery.id %>/images/new">Add Image</a><!-- |
-			<a href="/galleries/<%= @gallery.id %>/images">Edit Image</a> |
-			<%= link_to 'Back', galleries_path %>-->
+			<a href="/galleries/<%= @gallery.id %>/images/new">Add Image</a>
 		</td>
 	</tr>
 </table>

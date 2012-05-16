@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
   
   ajaxful_rateable :dimensions => [:behavior]
   ajaxful_rater
-  
-  # new columns need to be added here to be writable through mass assignment
+
   attr_accessible :username, :email, :password, :password_confirmation
 
   attr_accessor :password
@@ -17,7 +16,6 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
 
-  # login can be either username or email address
   def self.authenticate(login, pass)
     user = find_by_username(login) || find_by_email(login)
     return user if user && user.password_hash == user.encrypt_password(pass)
@@ -25,7 +23,6 @@ class User < ActiveRecord::Base
 
   def encrypt_password(pass)
     BCrypt::Engine.hash_secret(pass, password_salt)
-    #Digest::SHA1.hexdigest([pass, password_salt].join)
   end
 
   private
@@ -33,7 +30,6 @@ class User < ActiveRecord::Base
   def prepare_password
     unless password.blank?
       self.password_salt = BCrypt::Engine.generate_salt
-      #self.password_salt = Digest::SHA1.hexdigest([Time.now, rand].join)
       self.password_hash = encrypt_password(password)
     end
   end
