@@ -12,10 +12,6 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
-    
-    myurl = @image.gallery_id.to_s
-    
-    redirect_to "/galleries/"+myurl+"/"
   end
 
   def new
@@ -31,13 +27,14 @@ class ImagesController < ApplicationController
   def edit
     @image = Image.find(params[:id])
   end
-
+  
   def create
     @image = Image.new(params[:image])
+    @gallery = @image.gallery_id
     
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to @image, notice: 'Image was successfully added.' }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
@@ -45,10 +42,10 @@ class ImagesController < ApplicationController
       end
     end
   end
-
+  
   def update
     @image = Image.find(params[:id])
-
+    
     respond_to do |format|
       if @image.update_attributes(params[:image])
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
@@ -59,13 +56,13 @@ class ImagesController < ApplicationController
       end
     end
   end
-
+  
   def destroy
-    @image = Image.find(params[:id])    
-    myurl = "/galleries/"+@image.gallery_id.to_s+"/"    
-    @image.destroy    
+    @image = Image.find(params[:id])
+    @gallery = Gallery.find(@image.gallery_id)
+    @image.destroy
     respond_to do |format|
-      format.html { redirect_to myurl  }
+      format.html { redirect_to @gallery, notice: 'Image successfully deleted from gallery.'  }
       format.json { head :no_content }
     end
   end

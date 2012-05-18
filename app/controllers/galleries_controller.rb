@@ -79,7 +79,7 @@ class GalleriesController < ApplicationController
     @gallery.destroy
 
     respond_to do |format|
-      format.html { redirect_to galleries_url }
+      format.html { redirect_to galleries_url, notice: 'Gallery successfully deleted!' }
       format.json { head :no_content }
     end
   end

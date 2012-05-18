@@ -10,6 +10,9 @@
       <td><%= user.username %></td>
       <td><%= ratings_for user, :static, :small => true, :dimension => :behavior %></td>
       <td><%= link_to "Show", user %></td>
+      <%if current_user.username == user.username %>
+      <td><%= link_to "Edit", edit_current_user_path %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
