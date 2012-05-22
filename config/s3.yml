@@ -1,0 +1,12 @@
+development:
+  bucket: dhara-photo-gallery
+  access_key_id: AKIAI5BIPIRBYDEFI7BQ
+  secret_access_key: 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
+test:
+  bucket: dhara-photo-gallery
+  access_key_id: AKIAI5BIPIRBYDEFI7BQ
+  secret_access_key: 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
+production:
+  bucket: dhara-photo-gallery
+  access_key_id: AKIAI5BIPIRBYDEFI7BQ
+  secret_access_key: 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

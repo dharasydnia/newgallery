@@ -24,6 +24,8 @@ gem 'ajaxful_rating', '3.0.0.beta3'
 
 gem "bcrypt-ruby", :require => "bcrypt"
 
+gem "aws-sdk"
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
