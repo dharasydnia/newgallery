@@ -35,6 +35,5 @@ Newgallery::Application.routes.draw do
   resources :galleries do
     resources :images
   end
-
-  
+ 
 end

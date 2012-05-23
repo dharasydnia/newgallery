@@ -37,3 +37,5 @@ gem 'jquery-rails'
 gem 'fancybox-rails'
 
 gem 'jquery-star-rating-rails'
+
+gem 'mail', '2.4.4'

@@ -146,6 +146,7 @@ DEPENDENCIES
   fancybox-rails
   jquery-rails
   jquery-star-rating-rails
+  mail (= 2.4.4)
   mocha
   nifty-generators
   paperclip
