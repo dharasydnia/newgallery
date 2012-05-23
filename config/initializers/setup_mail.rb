@@ -9,6 +9,6 @@ ActionMailer::Base.smtp_settings = {
 }
 
 #ActionMailer::Base.default_url_options[:host] = "localhost:3000"
-ActionMailer::Base.default_url_options[:host] = "http://quiet-mist-9128.herokuapp.com"
+ActionMailer::Base.default_url_options[:host] = "quiet-mist-9128.herokuapp.com"
 
 Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
